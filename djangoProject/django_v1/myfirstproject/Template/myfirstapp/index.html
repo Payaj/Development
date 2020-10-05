@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- This html file is going to be the template of the forms.py, so we can display forms.py -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regster</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+</head>
+    <body>
+        <form method="post">
+            <div class = "container">
+                <div class = "jumbotron">
+                       <h1>Register Here!</h1>
+                        {{ form.as_p }} <!-- .as_p is to break all the element of the form in different paragraphs -->
+                        {% csrf_token %}<!-- Since we are doing a post request for this form (see method above), we have to pass a csrf token -->
+                    <input type="submit" class="btn btn-primary" value="Register" /> <!-- This is to add a submit button at the end of the form -->
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
