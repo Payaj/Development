@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- This html file is going to be the template of the forms.py, so we can display forms.py -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+</head>
+    <body>
+        <form method="POST" class="post-form" action="/BLOG_POSTS/update/{{record.id}}">
+            {% csrf_token %}<!-- Since we are doing a post request for this form (see method above), we have to pass a csrf token -->
+            <center>
+                <div class = "container">
+                    <div class = "jumbotron">
+                           <h1>Update Details</h1>
+                    </div>
+                </div>
+                <label for="street_address">Street Address:</label><br>
+                <input type="text" id="street_address" name="street_address" value="{{record.street_address}}"><br>
+                <label for="unit">Unit:</label><br>
+                <input type="text" id="unit" name="unit" value="{{record.unit}}"><br><br>
+                <label for="bed">Beds:</label><br>
+                <input type="text" id="bed" name="bed" value="{{record.bed}}"><br><br>
+                <label for="bath">Baths:</label><br>
+                <input type="text" id="bath" name="bath" value="{{record.bath}}"><br><br>
+                <label for="sqft">Sqft:</label><br>
+                <input type="text" id="sqft" name="sqft" value="{{record.sqft}}"><br><br>
+                <label for="price">Price:</label><br>
+                <input type="text" id="price" name="price" value="{{record.price}}"><br><br>
+                <input type="submit" value="Update">
+            </center>
+            <br>
+        </form>
+    </body>
+</html>

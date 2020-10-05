@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+</head>
+<body>
+     <table class="table table-striped table-bordered table-sm">
+         <thead class="thead-dark">
+             <tr>
+                 <th><center>Street Address</center></th>
+                 <th><center>Unit</center></th>
+                 <th><center>Bed</center></th>
+                 <th><center>Bath</center></th>
+                 <th><center>SqFt</center></th>
+                 <th><center>Price</center></th>
+                 <th><center>Action</center></th>
+             </tr>
+         </thead>
+         <tbody>
+           {% for r in listings %}
+           <tr>
+               <td><center>{{r.street_address}}</center></td>
+               <td><center>{{r.unit}}</center></td>
+               <td><center>{{r.bed}}</center></td>
+               <td><center>{{r.bath}}</center></td>
+               <td><center>{{r.sqft}}</center></td>
+               <td><center>{{r.price}}</center></td>
+               <td><center><a href="/BLOG_POSTS/delete/{{r.id}}" class="btn btn-info" role="button">Delete</a> <a href="/BLOG_POSTS/listing_update/{{r.id}}" class="btn btn-info" role="button">Edit</a></center></td>
+           </tr>
+           {% endfor %}
+         </tbody>
+    </table>
+    <br />
+    <br />
+    <center>
+        <form method="post">
+            <div class = "container">
+                <div class = "jumbotron">
+                       <h1>Submit your listings here:</h1>
+                        {{ form.as_p }} <!-- .as_p is to break all the element of the form in different paragraphs -->
+                        {% csrf_token %}<!-- Since we are doing a post request for this form (see method above), we have to pass a csrf token -->
+                    <input type="submit" class="btn btn-primary" value="Enter" /> <!-- This is to add a submit button at the end of the form -->
+                </div>
+            </div>
+        </form>
+        <!--<a href="/BLOG_POSTS/listing_info" class="btn btn-primary">Add New Records</a>-->
+    </center>
+</body>
+</html>
