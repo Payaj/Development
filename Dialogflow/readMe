@@ -1,0 +1,13 @@
+As of August 2019.
+This folder is for webhook for Dialogflow. 
+
+To make changes in the Dialogflow, 
+1) push changes in the github 
+2) go to Google cloud console, make sure in the right project (Scout-main) on the upper left
+3) click Activiate Cloud Shell on the upper right menu (second icon)
+4) do cd [your git repo]
+5) do git pull
+6) enter the username and password of your github
+7) do gcloud app deploy app_js.yaml --[your project name]
+8) make sure the modified server is 'df' // you can name it anything, in my case I chose df
+9) copy the API to webhook URL section in Dialogflow Fullfillment
